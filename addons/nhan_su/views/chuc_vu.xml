@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Form View -->
+        <record id="view_chuc_vu_form" model="ir.ui.view">
+            <field name="name">chuc_vu.form</field>
+            <field name="model">chuc_vu</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_read_only" style="font-size:20px">Chức vụ</div>
+                        <group col="4">
+                            <field name="name"/>
+                            <field name="ma_chuc_vu"/>
+                            <field name="mo_ta" colspan="4"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View -->
+        <record id="view_chuc_vu_tree" model="ir.ui.view">
+            <field name="name">chuc_vu.tree</field>
+            <field name="model">chuc_vu</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="ma_chuc_vu"/>
+                    <field name="mo_ta"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_chuc_vu" model="ir.actions.act_window">
+            <field name="name">Chức vụ</field>
+            <field name="res_model">chuc_vu</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menu Item -->
+        <menuitem id="menu_chuc_vu" name="Chức vụ" parent="nhan_su.menu_root" action="action_chuc_vu" sequence="20"/>
+    </data>
+</odoo>

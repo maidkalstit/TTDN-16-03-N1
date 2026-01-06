@@ -10,10 +10,50 @@
                         <div class="oe_read_only" style="font-size:25px">Nhân viên</div>
                         <group col="4" string="Thông tin chung">
                             <field name="ma_dinh_danh"/>
+                            <field name="name"/>
                             <field name="ngay_sinh"/>
-                            <field name="que_quan"/>
+                            <field name="chuc_vu_id"/>
                             <field name="email"/>
+                            <field name="so_dien_thoai"/>
+                            <field name="so_bhxh"/>
+                            <field name="dia_chi_thuong_tru"/>
+                            <field name="luong_co_ban"/>
                         </group>
+                        <group col="4" string="Thông tin phòng ban">
+                            <field name="phong_ban_ids" nolabel="1" colspan="4" widget="many2many_tags"/>
+                        </group>
+                        <notebook>
+                            <page string="Chứng chỉ">
+                                <field name="chung_chi_ids" nolabel="1">
+                                    <tree editable="bottom">
+                                        <field name="ten_chung_chi"/>
+                                        <field name="noi_cap"/>
+                                        <field name="ngay_cap"/>
+                                        <field name="ngay_het_han"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Chấm công">
+                                <field name="cham_cong_ids" nolabel="1">
+                                    <tree editable="bottom">
+                                        <field name="ngay"/>
+                                        <field name="gio_vao"/>
+                                        <field name="gio_ra"/>
+                                        <field name="trang_thai"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Lịch sử công tác">
+                                <field name="lich_su_cong_tac_ids" nolabel="1">
+                                    <tree editable="bottom">
+                                        <field name="tu_ngay"/>
+                                        <field name="den_ngay"/>
+                                        <field name="vi_tri_cu"/>
+                                        <field name="phong_ban_cu"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
                     </sheet>
                 </form>
             </field>
@@ -25,9 +65,12 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="ma_dinh_danh"/>
+                    <field name="name"/>
+                    <field name="chuc_vu_id"/>
                     <field name="ngay_sinh"/>
-                    <field name="que_quan"/>
                     <field name="email"/>
+                    <field name="luong_co_ban"/>
+                    <field name="phong_ban_ids" widget="many2many_tags"/>
                 </tree>
             </field>
         </record>
@@ -37,9 +80,12 @@
             <field name="arch" type="xml">
                 <search>
                     <field name="ma_dinh_danh"/>
+                    <field name="name"/>
+                    <field name="chuc_vu_id"/>
                     <field name="ngay_sinh"/>
-                    <field name="que_quan"/>
                     <field name="email"/>
+                    <field name="luong_co_ban"/>
+                    <field name="phong_ban_ids"/>
                 </search>
             </field>
         </record>
@@ -48,9 +94,7 @@
             <field name="name">Nhân viên</field>
             <field name="res_model">nhan_vien</field>
             <field name="view_mode">tree,form</field>
-            <field name="search_view_id" ref = "nhan_vien_search"/>
+            <field name="search_view_id" ref="nhan_vien_search"/>
         </record>
     </data>
 </odoo>
-        
-    
